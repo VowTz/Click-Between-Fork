@@ -353,14 +353,6 @@ class $modify(GJBaseGameLayer) {
 		return modifiedDelta;
 	}
 
-	void processCommands(float p0) {
-		if (clickOnSteps && !stepQueue.empty()) {
-			Step step;
-			do step = popStepQueue(); while (!stepQueue.empty() && !step.endStep); // process 1 step (or more if theres an input)
-		}
-		GJBaseGameLayer::processCommands(p0);
-	}
-
 	float getModifiedDelta(float delta) {
 		return calculateSteps(GJBaseGameLayer::getModifiedDelta(delta));
 	}
